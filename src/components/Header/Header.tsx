@@ -10,43 +10,45 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
   return (
-    <div className="py-6 px-4 md:px-16 flex items-center absolute justify-between w-full z-10 max-w-[1440px] mx-auto">
-      <Link title="home" href={"/"}>
-        <Image alt="logo" width={32} height={32} src={"/logo.png"} />
-      </Link>
-      <ul className="gap-8 uppercase hidden min-[1000px]:flex">
-        {LINKS.map((props, i) => (
-          <NavLink
-            {...props}
-            isActive={router.pathname === props.path}
-            key={i}
-          />
-        ))}
-      </ul>
-      <button
-        onClick={() => {
-          setIsOpen(true);
-        }}
-        className="ml-3 transition active:scale-[0.95] min-[1000px]:hidden"
-      >
-        <HiMenuAlt1 size={32} color="white" />
-      </button>
-      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-        <div className="p-4 pt-6">
-          <Link title="home" href={"/"}>
-            <Image alt="logo" width={32} height={32} src={"/logo.png"} />
-          </Link>
-          <ul className="gap-2 uppercase flex flex-col mt-6">
-            {LINKS.map((props, i) => (
-              <NavLink
-                {...props}
-                isActive={router.pathname === props.path}
-                key={i}
-              />
-            ))}
-          </ul>
-        </div>
-      </Drawer>
+    <div className="flex justify-center">
+      <div className="py-6 px-4 md:px-16 flex items-center absolute justify-between w-full z-10 max-w-[1440px] mx-auto">
+        <Link title="home" href={"/"}>
+          <Image alt="logo" width={32} height={32} src={"/logo.png"} />
+        </Link>
+        <ul className="gap-8 uppercase hidden min-[1000px]:flex">
+          {LINKS.map((props, i) => (
+            <NavLink
+              {...props}
+              isActive={router.pathname === props.path}
+              key={i}
+            />
+          ))}
+        </ul>
+        <button
+          onClick={() => {
+            setIsOpen(true);
+          }}
+          className="ml-3 transition active:scale-[0.95] min-[1000px]:hidden"
+        >
+          <HiMenuAlt1 size={32} color="white" />
+        </button>
+        <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+          <div className="p-4 pt-6">
+            <Link title="home" href={"/"}>
+              <Image alt="logo" width={32} height={32} src={"/logo.png"} />
+            </Link>
+            <ul className="gap-2 uppercase flex flex-col mt-6">
+              {LINKS.map((props, i) => (
+                <NavLink
+                  {...props}
+                  isActive={router.pathname === props.path}
+                  key={i}
+                />
+              ))}
+            </ul>
+          </div>
+        </Drawer>
+      </div>
     </div>
   );
 }
