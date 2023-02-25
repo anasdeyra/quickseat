@@ -1,13 +1,13 @@
 import Image from "next/image";
 
-export default function SolutionCard({
+export default function SystemCard({
   icon,
   title,
   description,
   link,
-}: SolutionCardProps) {
+}: SystemCardProps) {
   return (
-    <div className=" drop-shadow-lg hover:drop-shadow-2xl cursor-pointer rounded-2xl bg-white p-4 flex flex-col items-center basis-80">
+    <div className=" drop-shadow-lg hover:drop-shadow-2xl cursor-pointer rounded-2xl bg-white p-4 flex flex-col items-center basis-80 shrink-0">
       <div className="bg-gradient-to-b p-2 from-[#752b6a] to-[#8d2e6a] rounded-full">
         <Image
           src={icon}
@@ -18,15 +18,12 @@ export default function SolutionCard({
         />
       </div>
       <h3 className="uppercase font-bold text-black mt-3">{title}</h3>
-      <p className="font-medium text-black mt-1 text-sm mb-3">{description}</p>
-      <span className="italic font-medium text-xs mt-auto text-secondary cursor-pointer">
-        Read more...
-      </span>
+      <p className="font-medium text-black mt-1 text-sm">{description}</p>
     </div>
   );
 }
 
-export interface SolutionCardProps {
+export interface SystemCardProps {
   icon: string;
   description: string;
   link: string;

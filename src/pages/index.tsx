@@ -1,6 +1,8 @@
 import Image from "next/image";
+import WhoWeServe from "../components/pages/home/WhoWeServe";
 import SolutionCard from "../components/Solution/SolutionCard";
-import { SOLUTIONS } from "../consts";
+import SystemCard from "../components/System/SystemCard";
+import { SOLUTIONS, SYSTEM } from "../consts";
 
 export default function Home() {
   return (
@@ -44,7 +46,7 @@ export default function Home() {
           src={"/img2.png"}
           height={903}
           width={1440}
-          className="hidden sm:inline-block mt-28"
+          className=" sm:inline-block mt-28"
         />
         <h2 className="font-bold text-black text-2xl mt-28">SOLUTIONS</h2>
         <div className="flex justify-center flex-wrap mt-16 gap-8 max-w-[1440px] mx-auto">
@@ -90,9 +92,9 @@ export default function Home() {
             The easiest, smartest and most user-friendly reservation system App
           </h3>
         </div>
-        <div className="flex justify-center flex-wrap pb-20 mt-8 sm:mt-20 gap-8 max-w-[1440px] mx-auto">
-          {SOLUTIONS.map((props, i) => (
-            <SolutionCard key={i} {...props} />
+        <div className="flex justify-center flex-wrap pb-32 mt-8 sm:mt-20 gap-4 md:gap-8 max-w-[1440px] mx-auto">
+          {SYSTEM.map((props, i) => (
+            <SystemCard key={i} {...props} />
           ))}
         </div>
         <div className="custom-shape-divider-bottom-1677174281">
@@ -109,6 +111,7 @@ export default function Home() {
           </svg>
         </div>
       </div>
+      <WhoWeServe />
     </div>
   );
 }
