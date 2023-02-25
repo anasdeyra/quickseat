@@ -12,7 +12,13 @@ export default function Footer() {
       <div className="flex flex-col items-center gap-4 lg:grid lg:grid-cols-3 lg:items-end justify-items-center px-4 md:px-16 py-4">
         <div className="flex max-lg:order-2">
           {SOCIALS.map(({ icon, link }, i) => (
-            <a href={link} target="_blank" key={i} className="mr-4">
+            <a
+              href={link}
+              target="_blank"
+              rel="noreferrer"
+              key={i}
+              className="mr-4"
+            >
               <Image alt={icon} src={icon} width={32} height={32} />
             </a>
           ))}

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ContactForm from "../components/pages/home/ContactForm";
 import WhoWeServe from "../components/pages/home/WhoWeServe";
 import SolutionCard from "../components/Solution/SolutionCard";
 import SystemCard from "../components/System/SystemCard";
@@ -112,6 +113,7 @@ export default function Home() {
         </div>
       </div>
       <WhoWeServe />
+      {/* <ContactForm /> */}
     </div>
   );
 }

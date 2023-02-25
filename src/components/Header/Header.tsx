@@ -13,7 +13,13 @@ export default function Header() {
     <div className="flex justify-center">
       <div className="py-6 px-4 md:px-16 flex items-center absolute justify-between w-full z-10 max-w-[1440px] mx-auto">
         <Link title="home" href={"/"}>
-          <Image alt="logo" width={32} height={32} src={"/logo.png"} />
+          <Image
+            alt="logo"
+            width={32}
+            height={32}
+            src={"/logo.png"}
+            className="min-[1000px]:w-12 min-[1000px]:h-12"
+          />
         </Link>
         <ul className="gap-8 uppercase hidden min-[1000px]:flex">
           {LINKS.map((props, i) => (
