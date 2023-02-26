@@ -64,7 +64,7 @@ export default function ContactForm() {
           }}
         />
         <Select
-          data={["Restaurant", "Nightclub or Bar", "Hotel or Staying", "Other"]}
+          data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
           label="Number of outlets"
           placeholder="Number of outlets"
           required
