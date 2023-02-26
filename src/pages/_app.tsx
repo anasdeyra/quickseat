@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import Header from "../components/Header/Header";
 import Head from "next/head";
 import Footer from "../components/Footer/Footer";
+import { MantineProvider } from "@mantine/core";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -13,7 +14,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/logo.png" />
       </Head>
       <Header />
-      <Component {...pageProps} />
+      <MantineProvider theme={{ primaryColor: "violet" }}>
+        <Component {...pageProps} />
+      </MantineProvider>
       <Footer />
     </div>
   );
