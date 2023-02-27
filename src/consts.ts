@@ -20,7 +20,7 @@ export const LINKS = [
   },
   {
     label: "About us",
-    path: "/about",
+    path: "/about-us",
   },
   {
     label: "Contact us",
@@ -174,5 +174,26 @@ export const WWS = [
     title: "HOTELS & STAYINGS",
     description:
       "Utilize a common reservation and guest management platform throughout your hotel or stayings to manage the guest experience and recognize the preferences of internal, external, and corporate guests.",
+  },
+];
+
+export const INTEGRATIONS = [
+  {
+    title: "PHONE INTEGRATION",
+    description:
+      "Get to know your guests profile & history before even answering their calls. Adding that our powerful phone integration will eliminate the possibility of collecting wrong/inaccurate numbers, leading to data accuracy, operational efficiency and minimizing human errors",
+    image: "/phone-int.png",
+  },
+  {
+    title: "POS INTEGRATION",
+    description:
+      "Never miss your guests’ previous orders & spending. Due to our powerful POS integration you will always keep track on your guests spending behavior, order preferences and total value in order to maximize your sales and guests experience",
+    image: "/pos-int.png",
+  },
+  {
+    title: "SMS INTEGRATION",
+    description:
+      "Upgrade your follow up routine & interact with your guests directly through our different communication channels",
+    image: "/sms-int.png",
   },
 ];

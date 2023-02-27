@@ -9,6 +9,7 @@ import { useRouter } from "next/router";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
+  const isHome = router.pathname === "/";
   return (
     <div className="flex justify-center">
       <div className="py-6 px-4 md:px-16 flex items-center absolute justify-between w-full z-10 max-w-[1440px] mx-auto">
@@ -17,11 +18,15 @@ export default function Header() {
             alt="logo"
             width={32}
             height={32}
-            src={"/logo.png"}
+            src={isHome ? "/logo.png" : "/logo-colored.png"}
             className="min-[1000px]:w-12 min-[1000px]:h-12"
           />
         </Link>
-        <ul className="gap-8 uppercase hidden min-[1000px]:flex">
+        <ul
+          className={`gap-8 uppercase hidden min-[1000px]:flex ${
+            isHome ? "" : "text-primary"
+          }`}
+        >
           {LINKS.map((props, i) => (
             <NavLink
               {...props}
@@ -36,7 +41,7 @@ export default function Header() {
           }}
           className="ml-3 transition active:scale-[0.95] min-[1000px]:hidden"
         >
-          <HiMenuAlt1 size={32} color="white" />
+          <HiMenuAlt1 size={32} color={isHome ? "white" : "#5e246d"} />
         </button>
         <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
           <div className="p-4 pt-6">
