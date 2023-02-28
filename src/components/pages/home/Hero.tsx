@@ -1,6 +1,14 @@
+import { Select, TextInput } from "@mantine/core";
+import { customArray } from "country-codes-list";
 import Image from "next/image";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
+
+const COUNTRY_CODES = customArray({
+  //@ts-ignore
+  label: "{countryNameEn}",
+  value: "{countryNameEn}",
+});
 
 export default function Hero() {
   //modal disclosure
@@ -47,6 +55,93 @@ export default function Hero() {
         <h3 className="text-primary text-2xl font-bold text-center">
           REQUEST A DEMO
         </h3>
+
+        <form className="mt-8 flex flex-col grow max-w-2xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3">
+          <TextInput label="First name" placeholder="John" required />
+          <TextInput label="Last name" placeholder="Doe" required />
+          <TextInput
+            label="Email"
+            placeholder="john@example.com"
+            required
+            type={"email"}
+          />
+
+          <TextInput
+            label="Outlet name"
+            placeholder="Your restaurent, Bar, Club, Venue"
+            required
+          />
+          <Select
+            data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
+            label="Number of outlets"
+            placeholder="Number of outlets"
+            required
+            styles={{
+              item: {
+                "&[data-selected]": {
+                  "&, &:hover": { backgroundColor: "#67246d" },
+                },
+              },
+            }}
+          />
+          <div className="flex gap-2">
+            <TextInput
+              label="Country code"
+              placeholder="+1"
+              required
+              styles={{
+                root: {
+                  flexGrow: 0,
+                  flexBasis: "100px",
+                },
+              }}
+            />
+            <TextInput
+              label="Phone number"
+              placeholder="123456789"
+              required
+              styles={{
+                root: {
+                  flexGrow: 2,
+                },
+              }}
+            />
+          </div>
+          <Select
+            searchable
+            data={COUNTRY_CODES}
+            label="Outlet Country"
+            placeholder="Outlet Country"
+            required
+            styles={{
+              item: {
+                "&[data-selected]": {
+                  "&, &:hover": { backgroundColor: "#67246d" },
+                },
+              },
+            }}
+          />
+          <Select
+            data={[
+              "Not using a reservation maangement system",
+              "Currently using a reservation management system",
+            ]}
+            label="Current status"
+            placeholder="Current status"
+            required
+            styles={{
+              item: {
+                "&[data-selected]": {
+                  "&, &:hover": { backgroundColor: "#67246d" },
+                },
+              },
+            }}
+          />
+
+          <button className="mt-2 bg-[#67246d] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto">
+            Request a demo
+          </button>
+        </form>
       </Modal>
     </div>
   );

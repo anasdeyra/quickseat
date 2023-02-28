@@ -7,11 +7,13 @@ export default function Modal({
   isOpen,
   setIsOpen,
   title,
+  size = "max-w-xl",
 }: {
   children: React.ReactNode;
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   title?: string;
+  size?: string;
 }) {
   function closeModal() {
     setIsOpen(false);
@@ -43,7 +45,9 @@ export default function Modal({
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel
+                className={`w-full ${size} transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all`}
+              >
                 <div className="flex mb-4">
                   {title && (
                     <Dialog.Title

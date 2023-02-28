@@ -197,3 +197,84 @@ export const INTEGRATIONS = [
     image: "/sms-int.png",
   },
 ];
+
+export const ABOUT_US_FEATURES = [
+  {
+    icon: "/mission-icon.png",
+    title: "MISSION",
+    description:
+      "Assist outlets in providing exceptional customer service and reservation management in order to boost revenues.",
+  },
+  {
+    icon: "/vision-icon.png",
+    title: "VISION",
+    description:
+      "Become worldwide leaders in providing the most advanced technologies that satisfiy the ever-changing needs.",
+  },
+  {
+    icon: "/values-icon.png",
+    title: "VALUES",
+    description:
+      "We value diversity, creativity, and innovation. We translate those values in our product, support, and everyday work.",
+  },
+];
+
+export const FOUNDERS = [
+  {
+    image: "/jimmy.png",
+    name: "JIMMY MASSOUD",
+    position: "FOUNDER & CEO",
+  },
+  {
+    image: "/ronny.png",
+    name: "RONNY FARAH",
+    position: "CO-FOUNDER & CSO",
+  },
+  {
+    image: "/ellie.png",
+    name: "ELIE OBEID",
+    position: "CO-FOUNDER & CTO",
+  },
+];
+
+export const PRICING_FEATURES = [
+  "Manage Reservations",
+  "Table Management",
+  "Waitlist Management",
+  "CRM & Guest Profile",
+  "Guest taging",
+  "Dailly Insights",
+  "Customized SMS & Email",
+  "Marketing Module",
+  "Integrations",
+  "Offline Mode",
+  "Support",
+];
+
+export const JOIN_US = [
+  {
+    title: "YOUR VOICE COUNTS",
+    description:
+      "There is something to learn from everyone. We do not believe in hierarchies and what you have to say always matters",
+  },
+  {
+    title: "FLEXIBLE WORK SCHEDULE",
+    description:
+      "We care immensly about your work life balance. Tell us the situation and we will find a remedy",
+  },
+  {
+    title: "GROW FAST",
+    description:
+      "We encourage situational leadership, which means you will start taking responsibilities early on and gain experience",
+  },
+  {
+    title: "NEVER STOP LEARNING",
+    description:
+      "We embrace emerging technologies. So learning becomes your way of life.",
+  },
+  {
+    title: "FEELS LIKE HOME",
+    description:
+      "We work like a family. You will experiencea work culture based on respect, care, and openness",
+  },
+];
