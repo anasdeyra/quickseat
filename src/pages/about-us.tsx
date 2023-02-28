@@ -122,9 +122,9 @@ export default function About() {
           We were successful in understanding all types of needs requested from
           different operation managers and owners. This is how it all started;
           we insisted on combining the Easiest, Smartest and Most User-Friendly
-          widgets whithin one app "QuickSeat" which can be implemented in real
-          life to all types of Restaurants, Nightclubs, Bars and Hotels &
-          Stayings. <br /> <br />
+          widgets whithin one app &quot;QuickSeat&quot; which can be implemented
+          in real life to all types of Restaurants, Nightclubs, Bars and Hotels
+          & Stayings. <br /> <br />
           With constantly changing demands of outlets, we are always keen on
           implementing the most advanced technologies which lead us to expanding
           internationally at a rate that has never been achieved.
