@@ -3,10 +3,29 @@ import { ABOUT_US_FEATURES, FOUNDERS, JOIN_US } from "../consts";
 import { useState } from "react";
 import Modal from "../components/Modal/Modal";
 import { FileInput, Select, Textarea, TextInput } from "@mantine/core";
+import { useForm } from "react-hook-form";
+import { customArray } from "country-codes-list";
+
+const COUNTRY_CODES = customArray({
+  //@ts-ignore
+  label: "+{countryCallingCode}",
+  value: "{countryCode} (+{countryCallingCode})",
+});
 
 export default function About() {
   //modal disclosure
   const [isOpen, setIsOpen] = useState(false);
+  const { handleSubmit, register, setValue } = useForm({ defaultValues: {} });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = () =>
+    handleSubmit((data) => {
+      setIsSubmitting(true);
+      console.log(data);
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 2000);
+    });
 
   return (
     <div className="min-[1000px]:pt-32 pt-24 px-4 md:px-16 max-w-[1440px] mx-auto">
@@ -130,9 +149,18 @@ export default function About() {
           internationally at a rate that has never been achieved.
         </p>
 
-        <form className="mt-8 flex flex-col grow max-w-[800px] rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3">
-          <TextInput label="Full name" placeholder="John Doe" required />
+        <form
+          onSubmit={onSubmit()}
+          className="mt-8 flex flex-col grow max-w-[800px] rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3"
+        >
           <TextInput
+            {...register("name")}
+            label="Full name"
+            placeholder="John Doe"
+            required
+          />
+          <TextInput
+            {...register("email")}
             label="Email"
             placeholder="john@example.com"
             required
@@ -140,10 +168,13 @@ export default function About() {
           />
 
           <div className="flex gap-2">
-            <TextInput
+            <Select
+              onChange={(value) => {
+                setValue("countryCode", value);
+              }}
+              data={COUNTRY_CODES}
               label="Country code"
               placeholder="+1"
-              required
               styles={{
                 root: {
                   flexGrow: 0,
@@ -152,6 +183,7 @@ export default function About() {
               }}
             />
             <TextInput
+              {...register("phoneNumber")}
               label="Phone number"
               placeholder="123456789"
               required
@@ -163,17 +195,28 @@ export default function About() {
             />
           </div>
 
-          <FileInput label="Your CV" placeholder="Upload your CV" required />
+          <FileInput
+            onChange={(f) => {
+              setValue("cv", f);
+            }}
+            label="Your CV"
+            placeholder="Upload your CV"
+            required
+          />
 
           <Textarea
+            {...register("coverLetter")}
             minRows={4}
             label="Cover letter"
             placeholder="Tell us about yourself and why you would like to join our team!"
             required
           />
 
-          <button className="mt-2 bg-[#67246d] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto">
-            Apply now
+          <button
+            disabled={isSubmitting}
+            className="mt-2 bg-[#67246d] disabled:bg-[#67376b] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto"
+          >
+            {isSubmitting ? "Applying..." : "Apply"}
           </button>
         </form>
       </Modal>

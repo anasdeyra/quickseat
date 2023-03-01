@@ -2,6 +2,7 @@ import { Select, TextInput } from "@mantine/core";
 import { customArray } from "country-codes-list";
 import Image from "next/image";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import Modal from "../../Modal/Modal";
 
 const COUNTRY_NAMES = customArray({
@@ -18,6 +19,17 @@ const COUNTRY_CODES = customArray({
 export default function Hero() {
   //modal disclosure
   const [isOpen, setIsOpen] = useState(false);
+  const { handleSubmit, register, setValue } = useForm({ defaultValues: {} });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = () =>
+    handleSubmit((data) => {
+      setIsSubmitting(true);
+      console.log(data);
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 2000);
+    });
 
   return (
     <div className="px-4 md:px-16">
@@ -61,10 +73,24 @@ export default function Hero() {
           REQUEST A DEMO
         </h3>
 
-        <form className="mt-8 flex flex-col grow max-w-2xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3">
-          <TextInput label="First name" placeholder="John" required />
-          <TextInput label="Last name" placeholder="Doe" required />
+        <form
+          onSubmit={onSubmit()}
+          className="mt-8 flex flex-col grow max-w-2xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3"
+        >
           <TextInput
+            {...register("firstName")}
+            label="First name"
+            placeholder="John"
+            required
+          />
+          <TextInput
+            {...register("lastName")}
+            label="Last name"
+            placeholder="Doe"
+            required
+          />
+          <TextInput
+            {...register("email")}
             label="Email"
             placeholder="john@example.com"
             required
@@ -72,11 +98,15 @@ export default function Hero() {
           />
 
           <TextInput
+            {...register("outletName")}
             label="Outlet name"
             placeholder="Your restaurent, Bar, Club, Venue"
             required
           />
           <Select
+            onChange={(value) => {
+              setValue("outletCount", value);
+            }}
             data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
             label="Number of outlets"
             placeholder="Number of outlets"
@@ -90,6 +120,9 @@ export default function Hero() {
           />
           <div className="flex gap-2">
             <Select
+              onChange={(value) => {
+                setValue("countryCode", value);
+              }}
               data={COUNTRY_CODES}
               label="Country code"
               placeholder="+1"
@@ -101,6 +134,7 @@ export default function Hero() {
               }}
             />
             <TextInput
+              {...register("phoneNumber")}
               label="Phone number"
               placeholder="123456789"
               required
@@ -112,6 +146,9 @@ export default function Hero() {
             />
           </div>
           <Select
+            onChange={(value) => {
+              setValue("outletCountry", value);
+            }}
             data={COUNTRY_NAMES}
             label="Outlet Country"
             placeholder="Outlet Country"
@@ -124,6 +161,9 @@ export default function Hero() {
             }}
           />
           <Select
+            onChange={(value) => {
+              setValue("currentStatus", value);
+            }}
             data={[
               "Not using a reservation mangement system",
               "Currently using a reservation management system",
@@ -139,8 +179,11 @@ export default function Hero() {
             }}
           />
 
-          <button className="mt-2 bg-[#67246d] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto">
-            Request a demo
+          <button
+            disabled={isSubmitting}
+            className="mt-2 bg-[#67246d] disabled:bg-[#67376b] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto"
+          >
+            {isSubmitting ? "Sending request..." : "Request a demo"}
           </button>
         </form>
       </Modal>

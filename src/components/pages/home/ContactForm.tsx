@@ -1,6 +1,7 @@
-import { Button, Select, Textarea, TextInput } from "@mantine/core";
+import { Select, Textarea, TextInput } from "@mantine/core";
 import { useForm } from "react-hook-form";
 import { customArray } from "country-codes-list";
+import { useState } from "react";
 
 const COUNTRY_CODES = customArray({
   //@ts-ignore
@@ -9,15 +10,34 @@ const COUNTRY_CODES = customArray({
 });
 
 export default function ContactForm() {
-  const { handleSubmit, register } = useForm({ defaultValues: {} });
+  const { handleSubmit, register, setValue } = useForm({ defaultValues: {} });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const onSubmit = () =>
+    handleSubmit((data) => {
+      setIsSubmitting(true);
+      console.log(data);
+      setTimeout(() => {
+        setIsSubmitting(false);
+      }, 2000);
+    });
 
   return (
     <div id="contact-us" className="px-4 md:px-16 max-w-[1440px] mx-auto">
       <h2 className="font-bold text-2xl mt-28 text-black">CONTACT US</h2>
 
-      <form className="mt-8 flex flex-col grow max-w-2xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3">
-        <TextInput label="Full name" placeholder="John Doe" required />
+      <form
+        onSubmit={onSubmit()}
+        className="mt-8 flex flex-col grow max-w-3xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3"
+      >
         <TextInput
+          {...register("name")}
+          label="Full name"
+          placeholder="John Doe"
+          required
+        />
+        <TextInput
+          {...register("email")}
           label="Email"
           placeholder="john@example.com"
           required
@@ -25,6 +45,9 @@ export default function ContactForm() {
         />
         <div className="flex gap-2">
           <Select
+            onChange={(value) => {
+              setValue("countryCode", value);
+            }}
             data={COUNTRY_CODES}
             label="Country code"
             placeholder="+1"
@@ -36,6 +59,7 @@ export default function ContactForm() {
             }}
           />
           <TextInput
+            {...register("phoneNumber")}
             label="Phone number"
             placeholder="123456789"
             required
@@ -46,8 +70,16 @@ export default function ContactForm() {
             }}
           />
         </div>
-        <TextInput label="Company name" placeholder="Space X" required />
+        <TextInput
+          {...register("companyName")}
+          label="Company name"
+          placeholder="Space X"
+          required
+        />
         <Select
+          onChange={(value) => {
+            setValue("outletType", value);
+          }}
           data={["Restaurant", "Nightclub or Bar", "Hotel or Staying", "Other"]}
           label="Outlet type"
           placeholder="Restaurant, nightclub, etc."
@@ -60,6 +92,9 @@ export default function ContactForm() {
           }}
         />
         <Select
+          onChange={(value) => {
+            setValue("outletNumber", value);
+          }}
           data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
           label="Number of outlets"
           placeholder="Number of outlets"
@@ -72,6 +107,9 @@ export default function ContactForm() {
           }}
         />
         <Select
+          onChange={(value) => {
+            setValue("howYouHeardAboutUs", value);
+          }}
           data={[
             "Google search",
             "Social media",
@@ -91,6 +129,9 @@ export default function ContactForm() {
           }}
         />
         <Select
+          onChange={(value) => {
+            setValue("GetStartedIn", value);
+          }}
           data={["Immediately", "1 to 2 weeks", "1 month"]}
           label="when do you want to get started?"
           placeholder="Immediately, 1 to 2 weeks, 1 month"
@@ -103,14 +144,18 @@ export default function ContactForm() {
           }}
         />
         <Textarea
+          {...register("message")}
           minRows={4}
           label="Message"
           placeholder="Leave us a message"
         />
 
         <div className="flex flex-col mt-2 md:flex-row md:items-start">
-          <button className="bg-[#67246d] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto">
-            Send
+          <button
+            disabled={isSubmitting}
+            className="bg-[#67246d] disabled:bg-[#67376b] rounded md:rounded-md px-8 py-2 font-medium text-sm md:order-2 md:ml-auto"
+          >
+            {isSubmitting ? "Submitting..." : "Submit"}
           </button>
           <p className="text-xs mt-4 text-gray-400 max-w-xs md:mt-0">
             By submitting this form, you are opting into our marketing and
@@ -118,6 +163,32 @@ export default function ContactForm() {
           </p>
         </div>
       </form>
+      <div className="grid grid-cols-3 max-w-3xl mx-auto mt-20">
+        <div className="flex gap-4 items-end">
+          <img src="/phone .png" className="h-16" />
+          <div className="text-left">
+            <h3 className="font-bold text-lg text-primary">CALL US</h3>
+            <p className="text-primary text-sm">Beirut - Lebanon</p>
+            <p className="text-primary text-sm">+961 71 174 414</p>
+          </div>
+        </div>
+        <div className="flex gap-4 items-end">
+          <img src="/mail .png" className="h-16" />
+          <div className="text-left">
+            <h3 className="font-bold text-primary text-lg">EMAIL US</h3>
+            <p className="text-primary text-sm">info@quickseat.co</p>
+          </div>
+        </div>
+        <div className="flex gap-4 items-end">
+          <img src="/location .png" className="h-16" />
+          <div className="text-left">
+            <h3 className="font-bold text-primary text-lg">OUR OFFICES</h3>
+            <p className="text-primary text-sm">
+              1st Flr. NZM BLD BLOC B Byblos, Lebanon
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
