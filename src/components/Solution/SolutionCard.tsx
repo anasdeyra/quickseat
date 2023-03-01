@@ -18,10 +18,7 @@ export default function SolutionCard({
         />
       </div>
       <h3 className="uppercase font-bold text-black mt-3">{title}</h3>
-      <p className="font-medium text-black mt-1 text-sm mb-3">{description}</p>
-      <span className="italic font-medium text-xs mt-auto text-secondary cursor-pointer">
-        Read more...
-      </span>
+      <p className="font-medium text-black mt-1 text-sm">{description}</p>
     </div>
   );
 }

@@ -8,15 +8,24 @@ export const LINKS = [
   },
   {
     label: "Solutions",
-    path: "/solutions",
+    subLinks: [
+      {
+        label: "Solutions",
+        path: "/#solutions",
+      },
+      {
+        label: "Integration",
+        path: "/integrations",
+      },
+    ],
   },
   {
     label: "Who we serve",
-    path: "#",
+    path: "/#who-we-serve",
   },
   {
     label: "Pricing",
-    path: "#",
+    path: "/#pricing",
   },
   {
     label: "About us",
@@ -24,7 +33,7 @@ export const LINKS = [
   },
   {
     label: "Contact us",
-    path: "/contact",
+    path: "/#contact-us",
   },
 ];
 
@@ -146,7 +155,7 @@ export const SOCIALS = [
   },
   {
     icon: "/in.png",
-    link: "https://www.linkedin.com/company/quickseat/",
+    link: "https://www.instagram.com/quickseatapp/",
   },
   {
     icon: "/li.png",
@@ -154,7 +163,7 @@ export const SOCIALS = [
   },
   {
     icon: "/wa.png",
-    link: "https://www.linkedin.com/company/quickseat/",
+    link: "#whatsapp-link",
   },
 ];
 
@@ -243,7 +252,7 @@ export const PRICING_FEATURES = [
   "Waitlist Management",
   "CRM & Guest Profile",
   "Guest taging",
-  "Dailly Insights",
+  "Dailly Insights & Reports",
   "Customized SMS & Email",
   "Marketing Module",
   "Integrations",

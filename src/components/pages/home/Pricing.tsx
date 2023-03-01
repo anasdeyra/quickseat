@@ -11,7 +11,10 @@ export default function Pricing() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="mt-16 md:mt-32 relative bg-gradient-to-b from-[#51183D] to-[#353E76] px-4 md:px-16">
+    <div
+      id="pricing"
+      className="mt-16 md:mt-32 relative bg-gradient-to-b from-[#51183D] to-[#353E76] px-4 md:px-16"
+    >
       <img
         src="/waves-top.svg"
         alt="waves-top"
@@ -89,9 +92,15 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <button className="text-sm sm:text-base uppercase cursor-pointer px-6 py-3 bg-primary block mx-auto rounded-2xl font-bold mt-8 active:scale-[0.99]">
+          <a
+            onClick={() => {
+              setIsOpen(false);
+            }}
+            href="/#contact-us"
+            className="text-sm w-max sm:text-base uppercase cursor-pointer px-6 py-3 bg-primary block mx-auto rounded-2xl font-bold mt-8 active:scale-[0.99]"
+          >
             get started
-          </button>
+          </a>
         </div>
       </Modal>
     </div>

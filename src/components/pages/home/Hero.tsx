@@ -4,10 +4,15 @@ import Image from "next/image";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
 
-const COUNTRY_CODES = customArray({
+const COUNTRY_NAMES = customArray({
   //@ts-ignore
   label: "{countryNameEn}",
   value: "{countryNameEn}",
+});
+const COUNTRY_CODES = customArray({
+  //@ts-ignore
+  label: "+{countryCallingCode}",
+  value: "{countryCode} (+{countryCallingCode})",
 });
 
 export default function Hero() {
@@ -75,7 +80,6 @@ export default function Hero() {
             data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
             label="Number of outlets"
             placeholder="Number of outlets"
-            required
             styles={{
               item: {
                 "&[data-selected]": {
@@ -85,10 +89,10 @@ export default function Hero() {
             }}
           />
           <div className="flex gap-2">
-            <TextInput
+            <Select
+              data={COUNTRY_CODES}
               label="Country code"
               placeholder="+1"
-              required
               styles={{
                 root: {
                   flexGrow: 0,
@@ -108,11 +112,9 @@ export default function Hero() {
             />
           </div>
           <Select
-            searchable
-            data={COUNTRY_CODES}
+            data={COUNTRY_NAMES}
             label="Outlet Country"
             placeholder="Outlet Country"
-            required
             styles={{
               item: {
                 "&[data-selected]": {
@@ -123,12 +125,11 @@ export default function Hero() {
           />
           <Select
             data={[
-              "Not using a reservation maangement system",
+              "Not using a reservation mangement system",
               "Currently using a reservation management system",
             ]}
             label="Current status"
             placeholder="Current status"
-            required
             styles={{
               item: {
                 "&[data-selected]": {

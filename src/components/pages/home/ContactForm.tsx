@@ -4,17 +4,15 @@ import { customArray } from "country-codes-list";
 
 const COUNTRY_CODES = customArray({
   //@ts-ignore
-  code: "{countryCode}",
-  //@ts-ignore
   label: "+{countryCallingCode}",
-  value: "{countryCallingCode}",
+  value: "{countryCode} (+{countryCallingCode})",
 });
 
 export default function ContactForm() {
   const { handleSubmit, register } = useForm({ defaultValues: {} });
 
   return (
-    <div className="px-4 md:px-16 max-w-[1440px] mx-auto">
+    <div id="contact-us" className="px-4 md:px-16 max-w-[1440px] mx-auto">
       <h2 className="font-bold text-2xl mt-28 text-black">CONTACT US</h2>
 
       <form className="mt-8 flex flex-col grow max-w-2xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3">
@@ -26,10 +24,10 @@ export default function ContactForm() {
           type={"email"}
         />
         <div className="flex gap-2">
-          <TextInput
+          <Select
+            data={COUNTRY_CODES}
             label="Country code"
             placeholder="+1"
-            required
             styles={{
               root: {
                 flexGrow: 0,
@@ -53,7 +51,6 @@ export default function ContactForm() {
           data={["Restaurant", "Nightclub or Bar", "Hotel or Staying", "Other"]}
           label="Outlet type"
           placeholder="Restaurant, nightclub, etc."
-          required
           styles={{
             item: {
               "&[data-selected]": {
@@ -66,7 +63,6 @@ export default function ContactForm() {
           data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
           label="Number of outlets"
           placeholder="Number of outlets"
-          required
           styles={{
             item: {
               "&[data-selected]": {
@@ -84,9 +80,8 @@ export default function ContactForm() {
             "Job fair",
             "Other",
           ]}
-          label="How id you hear about us?"
-          placeholder="How id you hear about us?"
-          required
+          label="How did you hear about us?"
+          placeholder="How did you hear about us?"
           styles={{
             item: {
               "&[data-selected]": {
@@ -99,7 +94,6 @@ export default function ContactForm() {
           data={["Immediately", "1 to 2 weeks", "1 month"]}
           label="when do you want to get started?"
           placeholder="Immediately, 1 to 2 weeks, 1 month"
-          required
           styles={{
             item: {
               "&[data-selected]": {
@@ -112,7 +106,6 @@ export default function ContactForm() {
           minRows={4}
           label="Message"
           placeholder="Leave us a message"
-          required
         />
 
         <div className="flex flex-col mt-2 md:flex-row md:items-start">

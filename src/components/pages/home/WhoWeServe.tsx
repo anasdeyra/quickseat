@@ -4,7 +4,7 @@ import { WWS } from "../../../consts";
 
 export default function WhoWeServe() {
   return (
-    <div className="px-4 md:px-16 max-w-[1440px] mx-auto">
+    <div id="who-we-serve" className="px-4 md:px-16 max-w-[1440px] mx-auto">
       <h2 className="font-bold text-[#353f76] text-2xl mt-28">WHO WE SERVE</h2>
       <h3 className="text-black font-medium mt-2">
         Reservations, Events or Bookings, QuickSeat is here to meet the

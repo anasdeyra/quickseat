@@ -13,7 +13,9 @@ export default function Solutions() {
         width={1440}
         className=" sm:inline-block mt-28"
       />
-      <h2 className="font-bold text-black text-2xl mt-28">SOLUTIONS</h2>
+      <h2 id="solutions" className="font-bold text-black text-2xl mt-28">
+        SOLUTIONS
+      </h2>
       <div className="flex justify-center flex-wrap mt-16 gap-8 max-w-[1440px] mx-auto">
         {SOLUTIONS.map((props, i) => (
           <SolutionCard key={i} {...props} />

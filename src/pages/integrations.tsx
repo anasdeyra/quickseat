@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { INTEGRATIONS } from "../consts";
 
-export default function Solutions() {
+export default function Integration() {
   return (
     <div className="min-[1000px]:pt-32 pt-24 px-4 md:px-16 max-w-[1440px] mx-auto">
       <h1 className="text-center font-bold text-3xl sm:text-2xl sm:max-w-2xl sm:mx-auto mt-8 text-primary">
