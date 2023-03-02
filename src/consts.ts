@@ -29,7 +29,16 @@ export const LINKS = [
   },
   {
     label: "About us",
-    path: "/about-us",
+    subLinks: [
+      {
+        label: "About us",
+        path: "/about-us",
+      },
+      {
+        label: "Join the team",
+        path: "/about-us#join-the-team",
+      },
+    ],
   },
   {
     label: "Contact us",
@@ -43,49 +52,85 @@ export const SOLUTIONS: SolutionCardProps[] = [
     description:
       "Manage all reservations, increase bookings and boost revenue with our easiest, smartest & mostuser friendly app.",
     icon: "/s1.png",
-    link: "/",
+    more: [
+      "Get a complete overview of bookings and tables in real-time",
+      "See available, reserved and occupied tables at a glance",
+      "Use the floor map managemen according to your outlet physical setup",
+      "Make it easier o allocate guests and improve your daily routines",
+    ],
   },
   {
     title: "EVENT MANAGEMENT",
     description:
       "Our customized tool manages reservations and checks table inventory in real time, guarenteeing the best possible guest experience.",
     icon: "/s2.png",
-    link: "/",
+    more: [
+      "Run multiple outlets by using switch/add features and get reservations insights instantly",
+      "Use and configure different floor maps for all types of events",
+      "Seat more guests on your floor and boost revenue with time-slot, duration and capacity optimizations",
+      "Enrich your brand identity by our customized sms integration",
+      "Treat yoyr regylar costumers as VIPs by using our client preference widget",
+    ],
   },
   {
     title: "TABLE MANAGEMENT",
     description:
       "With our easiest & most advanced table management technology, you can now control all reservations, seats & their availability by using our simplified or dynamic floor/section view",
     icon: "/s3.png",
-    link: "/",
+    more: [
+      "Increase seats turnover with easy-to-use table management that provides you a quick overview of reservation",
+      "View reservations as a list, search for them, mark them with a highlight, and quickly update their statuses",
+      "Visulize the floor plan in real-time in otder to spot availabl tables.",
+    ],
   },
   {
     title: "CRM & GUEST PROFILES",
     description:
       "Create a powerful guest database & automatically know important details about their previous visit, You can book your visitors more quickly and provide them the best experience possible.",
     icon: "/s4.png",
-    link: "/",
+    more: [
+      "Start building your own guest database today",
+      "Create profiles for all your guests that automatically update with visit numbers, preferences, notes and tags.",
+      "Get a better overview of all your guests and their previous bookings",
+      "Book your guests faster and more efficiently with already saved guest information",
+      "Provide the best service with comments that remind you of the guest's preferences",
+      "Create tags that allow you to keep track of your regulars, VIPs, and bad guests",
+    ],
   },
   {
     title: "REPORTS & ANALYTICS",
     description:
       "Tracking figures & evaluating the data about guests & activities can help you make plans to boost income & expenditure",
     icon: "/s5.png",
-    link: "/",
+    more: [
+      "Get valuable insights with extensive reports",
+      "Get access to data reports from aspects such as bookings, canelation, no-shows, customers and tables",
+      "Monitor your daily, weekly and monthly performance throught various graphs and diagrams to help you with analysig the trend.",
+      "Surf our Dashboard for a quick charts view on your daily and weekly reservations, guests count and waitlists.",
+    ],
   },
   {
     title: "MARKETING MODULES",
     description:
       "Quickseat’s built-in marketing manager enables communication with customers and increase brand loyalty. Send clients personalized campaigns, reminders, and special offers to increase revenue",
     icon: "/s6.png",
-    link: "/",
+    more: [
+      "Use multiple filters to target the right audience for the right event from your guest database.",
+      "Increase your reservations by scheduling targeted SMS and or Emails campaigns.",
+      "Use your guests saved tags in order to create personalized campaigns.",
+    ],
   },
   {
     title: "WAITLIST",
     description:
       "Manage waitlists  and keep a weekly track on your outlet’s capacity. Avoid no-shows and cancelations by easily converting waitlisted guests to standard ones",
     icon: "/s7.png",
-    link: "/",
+    more: [
+      "Increase efficiency and avoid crowded waiting lines at your outlet",
+      "Allow staff to add guests to the waitlist manually or automatically if full capacity is reaced",
+      "easily conver waitlist guests to a standard booking once a table is available again",
+      "Surf our Dashboard for a quick charts view on your daily and weekly waitlists.",
+    ],
   },
 ];
 
@@ -250,9 +295,9 @@ export const PRICING_FEATURES = [
   "Manage Reservations",
   "Table Management",
   "Waitlist Management",
-  "CRM & Guest Profile",
-  "Guest taging",
-  "Dailly Insights & Reports",
+  "CRM & Guest Profiles",
+  "Guest Tagging",
+  "Daily Insights & Reports",
   "Customized SMS & Email",
   "Marketing Module",
   "Integrations",

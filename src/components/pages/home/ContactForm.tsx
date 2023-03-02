@@ -5,8 +5,8 @@ import { useState } from "react";
 
 const COUNTRY_CODES = customArray({
   //@ts-ignore
-  label: "+{countryCallingCode}",
-  value: "{countryCode} (+{countryCallingCode})",
+  label: "{countryNameEn} (+{countryCallingCode})",
+  value: "{countryNameEn} (+{countryCallingCode})",
 });
 
 export default function ContactForm() {
@@ -47,6 +47,7 @@ export default function ContactForm() {
         />
         <div className="flex gap-2">
           <Select
+            required
             onChange={(value) => {
               //@ts-ignore
               setValue("countryCode", value);
@@ -57,7 +58,7 @@ export default function ContactForm() {
             styles={{
               root: {
                 flexGrow: 0,
-                flexBasis: "100px",
+                flexBasis: "150px",
               },
             }}
           />
@@ -82,6 +83,7 @@ export default function ContactForm() {
           required
         />
         <Select
+          required
           onChange={(value) => {
             //@ts-ignore
             setValue("outletType", value);
@@ -98,6 +100,7 @@ export default function ContactForm() {
           }}
         />
         <Select
+          required
           onChange={(value) => {
             //@ts-ignore
             setValue("outletNumber", value);
@@ -114,6 +117,7 @@ export default function ContactForm() {
           }}
         />
         <Select
+          required
           onChange={(value) => {
             //@ts-ignore
             setValue("howYouHeardAboutUs", value);
@@ -137,6 +141,7 @@ export default function ContactForm() {
           }}
         />
         <Select
+          required
           onChange={(value) => {
             //@ts-ignore
             setValue("GetStartedIn", value);
@@ -174,24 +179,30 @@ export default function ContactForm() {
         </div>
       </form>
       <div className="grid grid-cols-1 gap-4 md:grid-cols-3 max-w-3xl mx-auto mt-20">
-        <div className="flex gap-4 items-end justify-center">
-          <img src="/phone .png" className="h-16" />
-          <div className="text-left">
+        <div className="grid grid-cols-2 justify-items-center md:flex gap-4 md:items-end md:justify-center">
+          <img
+            src="/phone .png"
+            className="h-16 justify-self-end md:mr-0 mr-5"
+          />
+          <div className="text-left justify-self-start ">
             <h3 className="font-bold text-lg text-primary">CALL US</h3>
             <p className="text-primary text-sm">Beirut - Lebanon</p>
             <p className="text-primary text-sm">+961 71 174 414</p>
           </div>
         </div>
-        <div className="flex gap-4 items-end justify-center">
-          <img src="/mail .png" className="h-16" />
-          <div className="text-left">
+        <div className="grid grid-cols-2 justify-items-center md:flex gap-4 md:items-end md:justify-center">
+          <img
+            src="/mail .png"
+            className="h-16 justify-self-end mr-1 md:mr-0"
+          />
+          <div className="text-left justify-self-start">
             <h3 className="font-bold text-primary text-lg">EMAIL US</h3>
             <p className="text-primary text-sm">info@quickseat.co</p>
           </div>
         </div>
-        <div className="flex gap-4 items-end justify-center">
-          <img src="/location .png" className="h-16" />
-          <div className="text-left">
+        <div className="grid grid-cols-2 justify-items-center md:flex gap-4 md:items-end md:justify-center">
+          <img src="/location .png" className="h-16 justify-self-end" />
+          <div className="text-left justify-self-start">
             <h3 className="font-bold text-primary text-lg">OUR OFFICES</h3>
             <p className="text-primary text-sm">
               1st Flr. NZM BLD BLOC B Byblos, Lebanon

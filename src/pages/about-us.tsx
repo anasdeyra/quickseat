@@ -8,8 +8,8 @@ import { customArray } from "country-codes-list";
 
 const COUNTRY_CODES = customArray({
   //@ts-ignore
-  label: "+{countryCallingCode}",
-  value: "{countryCode} (+{countryCallingCode})",
+  label: "{countryNameEn} (+{countryCallingCode})",
+  value: "{countryNameEn} (+{countryCallingCode})",
 });
 
 export default function About() {
@@ -140,10 +140,12 @@ export default function About() {
           up strategies. <br />
           We were successful in understanding all types of needs requested from
           different operation managers and owners. This is how it all started;
-          we insisted on combining the Easiest, Smartest and Most User-Friendly
-          widgets whithin one app &quot;QuickSeat&quot; which can be implemented
-          in real life to all types of Restaurants, Nightclubs, Bars and Hotels
-          & Stayings. <br /> <br />
+          we insisted on combining the{" "}
+          <b>Easiest, Smartest and Most User-Friendly </b>
+          widgets whithin one app <b>&quot;QuickSeat&quot;</b> which can be
+          implemented in real life to all types of{" "}
+          <b>Restaurants, Nightclubs, Bars and Hotels & Stayings.</b> <br />{" "}
+          <br />
           With constantly changing demands of outlets, we are always keen on
           implementing the most advanced technologies which lead us to expanding
           internationally at a rate that has never been achieved.
@@ -171,6 +173,7 @@ export default function About() {
 
           <div className="flex gap-2">
             <Select
+              required
               onChange={(value) => {
                 //@ts-ignore
                 setValue("countryCode", value);
@@ -181,7 +184,7 @@ export default function About() {
               styles={{
                 root: {
                   flexGrow: 0,
-                  flexBasis: "100px",
+                  flexBasis: "150px",
                 },
               }}
             />

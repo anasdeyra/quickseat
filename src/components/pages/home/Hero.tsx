@@ -12,8 +12,8 @@ const COUNTRY_NAMES = customArray({
 });
 const COUNTRY_CODES = customArray({
   //@ts-ignore
-  label: "+{countryCallingCode}",
-  value: "{countryCode} (+{countryCallingCode})",
+  label: "{countryNameEn} (+{countryCallingCode})",
+  value: "{countryNameEn} (+{countryCallingCode})",
 });
 
 export default function Hero() {
@@ -108,6 +108,7 @@ export default function Hero() {
             required
           />
           <Select
+            required
             onChange={(value) => {
               //@ts-ignore
               setValue("outletCount", value);
@@ -125,6 +126,7 @@ export default function Hero() {
           />
           <div className="flex gap-2">
             <Select
+              required
               onChange={(value) => {
                 //@ts-ignore
                 setValue("countryCode", value);
@@ -135,7 +137,7 @@ export default function Hero() {
               styles={{
                 root: {
                   flexGrow: 0,
-                  flexBasis: "100px",
+                  flexBasis: "150px",
                 },
               }}
             />
@@ -153,6 +155,7 @@ export default function Hero() {
             />
           </div>
           <Select
+            required
             onChange={(value) => {
               //@ts-ignore
               setValue("outletCountry", value);
@@ -169,12 +172,13 @@ export default function Hero() {
             }}
           />
           <Select
+            required
             onChange={(value) => {
               //@ts-ignore
               setValue("currentStatus", value);
             }}
             data={[
-              "Not using a reservation mangement system",
+              "Not using a reservation management system",
               "Currently using a reservation management system",
             ]}
             label="Current status"

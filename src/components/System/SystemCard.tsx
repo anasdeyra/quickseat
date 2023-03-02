@@ -7,7 +7,7 @@ export default function SystemCard({
   link,
 }: SystemCardProps) {
   return (
-    <div className=" drop-shadow-lg hover:drop-shadow-2xl cursor-pointer rounded-2xl bg-white p-4 flex flex-col items-center basis-80 shrink-0">
+    <div className=" drop-shadow-lg hover:drop-shadow-2xl rounded-2xl bg-white p-4 flex flex-col items-center basis-80 shrink-0">
       <div className="bg-gradient-to-b p-2 from-[#752b6a] to-[#8d2e6a] rounded-full">
         <Image
           src={icon}
