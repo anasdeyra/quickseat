@@ -78,18 +78,21 @@ export default function Hero() {
           className="mt-8 flex flex-col grow max-w-2xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3"
         >
           <TextInput
+            //@ts-ignore
             {...register("firstName")}
             label="First name"
             placeholder="John"
             required
           />
           <TextInput
+            //@ts-ignore
             {...register("lastName")}
             label="Last name"
             placeholder="Doe"
             required
           />
           <TextInput
+            //@ts-ignore
             {...register("email")}
             label="Email"
             placeholder="john@example.com"
@@ -98,6 +101,7 @@ export default function Hero() {
           />
 
           <TextInput
+            //@ts-ignore
             {...register("outletName")}
             label="Outlet name"
             placeholder="Your restaurent, Bar, Club, Venue"
@@ -105,6 +109,7 @@ export default function Hero() {
           />
           <Select
             onChange={(value) => {
+              //@ts-ignore
               setValue("outletCount", value);
             }}
             data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
@@ -121,6 +126,7 @@ export default function Hero() {
           <div className="flex gap-2">
             <Select
               onChange={(value) => {
+                //@ts-ignore
                 setValue("countryCode", value);
               }}
               data={COUNTRY_CODES}
@@ -134,6 +140,7 @@ export default function Hero() {
               }}
             />
             <TextInput
+              //@ts-ignore
               {...register("phoneNumber")}
               label="Phone number"
               placeholder="123456789"
@@ -147,6 +154,7 @@ export default function Hero() {
           </div>
           <Select
             onChange={(value) => {
+              //@ts-ignore
               setValue("outletCountry", value);
             }}
             data={COUNTRY_NAMES}
@@ -162,6 +170,7 @@ export default function Hero() {
           />
           <Select
             onChange={(value) => {
+              //@ts-ignore
               setValue("currentStatus", value);
             }}
             data={[

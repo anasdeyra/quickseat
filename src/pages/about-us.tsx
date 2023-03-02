@@ -154,12 +154,14 @@ export default function About() {
           className="mt-8 flex flex-col grow max-w-[800px] rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3"
         >
           <TextInput
+            //@ts-ignore
             {...register("name")}
             label="Full name"
             placeholder="John Doe"
             required
           />
           <TextInput
+            //@ts-ignore
             {...register("email")}
             label="Email"
             placeholder="john@example.com"
@@ -170,6 +172,7 @@ export default function About() {
           <div className="flex gap-2">
             <Select
               onChange={(value) => {
+                //@ts-ignore
                 setValue("countryCode", value);
               }}
               data={COUNTRY_CODES}
@@ -183,6 +186,7 @@ export default function About() {
               }}
             />
             <TextInput
+              //@ts-ignore
               {...register("phoneNumber")}
               label="Phone number"
               placeholder="123456789"
@@ -197,6 +201,7 @@ export default function About() {
 
           <FileInput
             onChange={(f) => {
+              //@ts-ignore
               setValue("cv", f);
             }}
             label="Your CV"
@@ -205,6 +210,7 @@ export default function About() {
           />
 
           <Textarea
+            //@ts-ignore
             {...register("coverLetter")}
             minRows={4}
             label="Cover letter"

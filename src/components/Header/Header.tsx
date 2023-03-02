@@ -30,7 +30,7 @@ export default function Header() {
         >
           {LINKS.map((props, i) =>
             props.subLinks ? (
-              <MenuDropDown {...props} />
+              <MenuDropDown key={i} {...props} />
             ) : (
               <NavLink
                 {...props}
@@ -122,8 +122,8 @@ function MenuDropDown({ label, subLinks }: MenuDropDownProps) {
         >
           <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
-              {subLinks.map(({ label, path }) => (
-                <Menu.Item>
+              {subLinks.map(({ label, path }, i) => (
+                <Menu.Item key={i}>
                   {({ active }) => (
                     <a
                       href={path}

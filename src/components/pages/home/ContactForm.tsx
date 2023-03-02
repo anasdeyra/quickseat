@@ -31,12 +31,14 @@ export default function ContactForm() {
         className="mt-8 flex flex-col grow max-w-3xl rounded-xl border-2 border-[#67246d] text-start mx-auto p-4 gap-3"
       >
         <TextInput
+          //@ts-ignore
           {...register("name")}
           label="Full name"
           placeholder="John Doe"
           required
         />
         <TextInput
+          //@ts-ignore
           {...register("email")}
           label="Email"
           placeholder="john@example.com"
@@ -46,6 +48,7 @@ export default function ContactForm() {
         <div className="flex gap-2">
           <Select
             onChange={(value) => {
+              //@ts-ignore
               setValue("countryCode", value);
             }}
             data={COUNTRY_CODES}
@@ -59,6 +62,7 @@ export default function ContactForm() {
             }}
           />
           <TextInput
+            //@ts-ignore
             {...register("phoneNumber")}
             label="Phone number"
             placeholder="123456789"
@@ -71,6 +75,7 @@ export default function ContactForm() {
           />
         </div>
         <TextInput
+          //@ts-ignore
           {...register("companyName")}
           label="Company name"
           placeholder="Space X"
@@ -78,6 +83,7 @@ export default function ContactForm() {
         />
         <Select
           onChange={(value) => {
+            //@ts-ignore
             setValue("outletType", value);
           }}
           data={["Restaurant", "Nightclub or Bar", "Hotel or Staying", "Other"]}
@@ -93,6 +99,7 @@ export default function ContactForm() {
         />
         <Select
           onChange={(value) => {
+            //@ts-ignore
             setValue("outletNumber", value);
           }}
           data={["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "More"]}
@@ -108,6 +115,7 @@ export default function ContactForm() {
         />
         <Select
           onChange={(value) => {
+            //@ts-ignore
             setValue("howYouHeardAboutUs", value);
           }}
           data={[
@@ -130,6 +138,7 @@ export default function ContactForm() {
         />
         <Select
           onChange={(value) => {
+            //@ts-ignore
             setValue("GetStartedIn", value);
           }}
           data={["Immediately", "1 to 2 weeks", "1 month"]}
@@ -144,6 +153,7 @@ export default function ContactForm() {
           }}
         />
         <Textarea
+          //@ts-ignore
           {...register("message")}
           minRows={4}
           label="Message"
@@ -163,8 +173,8 @@ export default function ContactForm() {
           </p>
         </div>
       </form>
-      <div className="grid grid-cols-3 max-w-3xl mx-auto mt-20">
-        <div className="flex gap-4 items-end">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 max-w-3xl mx-auto mt-20">
+        <div className="flex gap-4 items-end justify-center">
           <img src="/phone .png" className="h-16" />
           <div className="text-left">
             <h3 className="font-bold text-lg text-primary">CALL US</h3>
@@ -172,14 +182,14 @@ export default function ContactForm() {
             <p className="text-primary text-sm">+961 71 174 414</p>
           </div>
         </div>
-        <div className="flex gap-4 items-end">
+        <div className="flex gap-4 items-end justify-center">
           <img src="/mail .png" className="h-16" />
           <div className="text-left">
             <h3 className="font-bold text-primary text-lg">EMAIL US</h3>
             <p className="text-primary text-sm">info@quickseat.co</p>
           </div>
         </div>
-        <div className="flex gap-4 items-end">
+        <div className="flex gap-4 items-end justify-center">
           <img src="/location .png" className="h-16" />
           <div className="text-left">
             <h3 className="font-bold text-primary text-lg">OUR OFFICES</h3>

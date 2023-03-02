@@ -5,6 +5,7 @@ import SystemCard from "../../System/SystemCard";
 import { useState } from "react";
 import Modal from "../../Modal/Modal";
 import { FiCheckCircle } from "react-icons/fi";
+import Link from "next/link";
 
 export default function Pricing() {
   //modal disclosure
@@ -92,7 +93,7 @@ export default function Pricing() {
               </div>
             ))}
           </div>
-          <a
+          <Link
             onClick={() => {
               setIsOpen(false);
             }}
@@ -100,7 +101,7 @@ export default function Pricing() {
             className="text-sm w-max sm:text-base uppercase cursor-pointer px-6 py-3 bg-primary block mx-auto rounded-2xl font-bold mt-8 active:scale-[0.99]"
           >
             get started
-          </a>
+          </Link>
         </div>
       </Modal>
     </div>
