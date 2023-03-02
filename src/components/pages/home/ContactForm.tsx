@@ -183,6 +183,7 @@ export default function ContactForm() {
           <img
             src="/phone .png"
             className="h-16 justify-self-end md:mr-0 mr-5"
+            alt="phone"
           />
           <div className="text-left justify-self-start ">
             <h3 className="font-bold text-lg text-primary">CALL US</h3>
@@ -194,6 +195,7 @@ export default function ContactForm() {
           <img
             src="/mail .png"
             className="h-16 justify-self-end mr-1 md:mr-0"
+            alt="mail"
           />
           <div className="text-left justify-self-start">
             <h3 className="font-bold text-primary text-lg">EMAIL US</h3>
@@ -201,7 +203,11 @@ export default function ContactForm() {
           </div>
         </div>
         <div className="grid grid-cols-2 justify-items-center md:flex gap-4 md:items-end md:justify-center">
-          <img src="/location .png" className="h-16 justify-self-end" />
+          <img
+            src="/location .png"
+            className="h-16 justify-self-end"
+            alt="location"
+          />
           <div className="text-left justify-self-start">
             <h3 className="font-bold text-primary text-lg">OUR OFFICES</h3>
             <p className="text-primary text-sm">

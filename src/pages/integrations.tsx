@@ -1,9 +1,17 @@
+import Head from "next/head";
 import Image from "next/image";
 import { INTEGRATIONS } from "../consts";
 
 export default function Integration() {
   return (
     <div className="min-[1000px]:pt-32 pt-24 px-4 md:px-16 max-w-[1440px] mx-auto">
+      <Head>
+        <title>QuickSeat - Integrations</title>
+        <meta
+          name="description"
+          content="Generate guest profiles automatically by using our APIs integrations with different platforms all in one place."
+        />
+      </Head>
       <h1 className="text-center font-bold text-3xl sm:text-2xl sm:max-w-2xl sm:mx-auto mt-8 text-primary">
         INTEGRATIONS
       </h1>

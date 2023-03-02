@@ -5,6 +5,7 @@ import Modal from "../components/Modal/Modal";
 import { FileInput, Select, Textarea, TextInput } from "@mantine/core";
 import { useForm } from "react-hook-form";
 import { customArray } from "country-codes-list";
+import Head from "next/head";
 
 const COUNTRY_CODES = customArray({
   //@ts-ignore
@@ -29,6 +30,26 @@ export default function About() {
 
   return (
     <div className="min-[1000px]:pt-32 pt-24 px-4 md:px-16 max-w-[1440px] mx-auto">
+      <Head>
+        <title>QuickSeat - About us</title>
+        <meta
+          name="description"
+          content=" We started our journey as employees in different outlets where we
+            enriched our management skills in customer service and outlets.
+            Along the road we used several systems where we faced a lot of
+            struggles and gaps in applying real time operations including
+            reservations, floor management, guest data base collection and
+            follow up strategies. We were successful in understanding all types
+            of needs requested from different operation managers and owners This
+            how it all started, we insisted on combining the easiest, smartest
+            and most user-friendly widgets within one app which can be
+            implemented in real life to all types of Restaurants, Nightclubs &
+            Bars and Hotels & Stayings. With constantly changing demands of
+            outlets, we are always keen on implementing the most advanced
+            technologies leading us to expand internationally at a rate that has
+            never been achieved."
+        />
+      </Head>
       <div className="mt-16 flex items-end">
         <img
           src="/about-bg.png"
