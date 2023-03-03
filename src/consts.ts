@@ -206,10 +206,6 @@ export const SOCIALS = [
     icon: "/li.png",
     link: "https://www.linkedin.com/company/quickseat/",
   },
-  {
-    icon: "/wa.png",
-    link: "#whatsapp-link",
-  },
 ];
 
 //who we serve
